@@ -1,3 +1,12 @@
+var chatworklize = function(str){
+    return str.replace("[info]", "<div class='info_tag'>").
+        replace("[/info]", "</div>").
+        replace("[title]", "<div class='title_tag'><span class='glyphicon glyphicon-info-sign'></span>").
+        replace("[/title]", "</div>").
+        replace("[hr]", "<hr>").
+        replace("[qt]", "&ldquo;");
+};
+
 var show_info_preview = function(){
     $("#preview_area").empty();
 
@@ -16,15 +25,6 @@ var show_plain_preview = function(){
 
     var info_text = $("#plain_area").val();
     $("#preview_area").html(chatworklize(info_text));
-};
-
-var chatworklize = function(str){
-    return str.replace("[info]", "<div class='info_tag'>").
-        replace("[/info]", "</div>").
-        replace("[title]", "<div class='title_tag'><span class='glyphicon glyphicon-info-sign'></span>").
-        replace("[/title]", "</div>").
-        replace("[hr]", "<hr>").
-        replace("[qt]", "&ldquo;");
 };
 
 $(function(){
