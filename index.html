@@ -52,6 +52,9 @@
                     <input id="title_area" type="text" class="form-control info_input" placeholder="Title">
 
                     <textarea id="info_area" class="form-control info_input" rows="20" placeholder="Description"></textarea>
+
+                    <h2>Copy</h2>
+                    <textarea id="copy_area" class="form-control info_input" rows="3" readonly></textarea>
                 </div>
                 <div class="tab-pane" id="plain">
                     <textarea id="plain_area" class="form-control plain_input" rows="20"></textarea>
@@ -95,6 +98,7 @@
         }
         info_text += $("#info_area").val() + "[/info]";
 
+        $("#copy_area").text(info_text);
         $("#preview_area").html(chatworklize(info_text));
     };
 
@@ -128,6 +132,10 @@
         });
 
         $('#editor-tab a:first').tab('show');
+
+        $("#copy_area").click(function(){
+            $(this).select();
+        });
     });
 </script>
 
