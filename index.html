@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ChatWork Tag Helper</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="chatwork-preview.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ChatWork Preview</a>
+        </div>
+    </div>
+
+    <a href="https://github.com/sue445/chatwork-preview"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+</div>
+
+<div class="container">
+    <div class="main row">
+        <div class="col-md-6">
+            <h2>
+                <span class="glyphicon glyphicon-pencil"></span>
+                Input
+            </h2>
+
+            <ul id="editor-tab" class="nav nav-tabs" role="tablist">
+                <li><a href="#info" role="tab" data-toggle="tab">Information Mode</a></li>
+                <li><a href="#plain" role="tab" data-toggle="tab">Plain Mode</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane" id="info">
+                    <input id="title_area" type="text" class="form-control info_input" placeholder="Title">
+
+                    <textarea id="info_area" class="form-control info_input" rows="20" placeholder="Description"></textarea>
+                </div>
+                <div class="tab-pane" id="plain">
+                    <textarea id="plain_area" class="form-control plain_input" rows="20"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2>
+                <span class="glyphicon glyphicon-eye-open"></span>
+                Preview
+            </h2>
+            <pre id="preview_area">
+
+            </div>
+        </div>
+    </div>
+    <div class="row about">
+        <div class="col-md-12">
+            <h2>About</h2>
+            <p class="lead">This is Simple <a href="http://www.chatwork.com/">ChatWork</a> Preview</p>
+
+            <h2>Detail</h2>
+
+            <footer>
+                Copyright (c) 2014- sue445
+            </footer>
+        </div>
+    </div>
+</div><!-- /.container -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<script>
+    var show_info_preview = function(){
+        $("#preview_area").empty();
+
+        var info_text = "[info]";
+        if($("#title_area").val().length > 0){
+            info_text += "[title]" + $("#title_area").val() + "[/title]";
+        }
+        info_text += $("#info_area").val() + "[/info]";
+
+        $("#preview_area").html(chatworklize(info_text));
+    };
+
+    var show_plain_preview = function(){
+        $("#preview_area").empty();
+
+        var info_text = $("#plain_area").val();
+        $("#preview_area").html(chatworklize(info_text));
+    };
+
+    var chatworklize = function(str){
+        return str.replace("[info]", "<div class='info_tag'>").
+                replace("[/info]", "</div>").
+                replace("[title]", "<div class='title_tag'><span class='glyphicon glyphicon-info-sign'></span>").
+                replace("[/title]", "</div>").
+                replace("[hr]", "<hr>").
+                replace("[qt]", "&ldquo;");
+    };
+
+    $(function(){
+        $(".info_input").change(function(){
+            show_info_preview();
+        }).keyup(function(){
+            show_info_preview();
+        });
+
+        $(".plain_input").change(function(){
+            show_plain_preview();
+        }).keyup(function(){
+            show_plain_preview();
+        });
+
+        $('#editor-tab a:first').tab('show');
+    });
+</script>
+</body>
+</html>

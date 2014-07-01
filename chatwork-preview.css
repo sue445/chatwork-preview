@@ -1,0 +1,39 @@
+body {
+    padding-top: 50px;
+}
+
+.main {
+    padding: 40px 15px;
+}
+
+.about {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+#preview_area {
+    padding: 5px;
+}
+
+#preview_area .info_tag {
+    background: #ffffff;
+    border: 1px;
+    padding-bottom: 3px;
+    maegin: 8px;
+}
+
+#preview_area .info_tag > .title_tag {
+    background: #f2f2f2;
+    border-bottom: 1px;
+}
+
+.title_tag > span{
+    margin-right: 5px;
+}
+
+#preview_area hr {
+    border-style: inset;
+    border-width: 1px;
+    margin-top: 3px;
+    margin-bottom: -7px;
+}
