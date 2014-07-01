@@ -37,3 +37,8 @@ body {
     margin-top: 3px;
     margin-bottom: -7px;
 }
+
+ul.share{
+    padding-top: 15px;
+    padding-right: 60px;
+}
