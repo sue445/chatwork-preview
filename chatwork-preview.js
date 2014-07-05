@@ -62,8 +62,8 @@ $(function(){
     });
 
     $(".tag-completion-button").click(function(){
-        var before = $(this).attr("data-completion-before") || "";
-        var after  = $(this).attr("data-completion-after")  || "";
+        var before = $(this).data("completion-before") || "";
+        var after  = $(this).data("completion-after")  || "";
 
         var target;
         if($("ul#editor-tab li:eq(0)").hasClass("active")){
