@@ -30,6 +30,7 @@ var show_info_preview = function(){
         info_text += "[title]" + $("#title_area").val() + "[/title]";
     }
     info_text += $("#info_area").val() + "[/info]";
+    info_text = info_text.trim();
 
     $("#copy_area").text(info_text);
     $("#preview_area").html(chatworklize(info_text));
@@ -38,7 +39,7 @@ var show_info_preview = function(){
 var show_plain_preview = function(){
     $("#preview_area").empty();
 
-    var info_text = $("#plain_area").val();
+    var info_text = $("#plain_area").val().trim();
     $("#preview_area").html(chatworklize(info_text));
 };
 
