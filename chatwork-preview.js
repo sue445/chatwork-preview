@@ -18,6 +18,8 @@ var chatworklize = function(str){
         replace(/\[\/info\]/g , "</div>").
         replace(/\[title\]/g  , "<div class='title_tag'><span class='glyphicon glyphicon-info-sign'></span>").
         replace(/\[\/title\]/g, "</div>").
+        replace(/\[code\]/g   , "<code>").
+        replace(/\[\/code\]/g , "</code>").
         replace(/\[hr\]/g     , "<hr>").
         replace(/\[qt\]/g     , "&ldquo;");
 };
